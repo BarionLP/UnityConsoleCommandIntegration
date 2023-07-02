@@ -1,0 +1,17 @@
+{
+    "name": "Ametrin.ConsoleCommandIntegration",
+    "rootNamespace": "",
+    "references": [
+        "GUID:24bf1c9729f14c04d827ab4b260e61eb",
+        "GUID:40f2028b999f4c74da80eb12e706769c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
