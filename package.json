@@ -1,9 +1,9 @@
 {
     "name": "com.ametrin.console-command-integration",
-    "displayName": "Ametrin Unity Console",
-    "version": "0.1.0",
+    "displayName": "Console Command Integration",
+    "version": "0.1.1",
     "unity": "2022.3",
-    "description": "Runtime Console for Unity",
+    "description": "Command integration for Ametrin Unity Console",
     "license": "MIT",
     "dependencies": {
         "com.ametrin.unity-console": "0.1.2",
