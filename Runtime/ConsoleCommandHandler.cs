@@ -11,7 +11,7 @@ namespace Ametrin.ConsoleCommandIntegration{
 
         public string? GetSyntax(string value){
             var inputParts = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-            if(inputParts.Length == 0) return null;
+            if(inputParts.Length == 0) return CommandManager.GetFirstSyntax();
             return CommandManager.GetSyntax(inputParts[0]);
         }
     }
