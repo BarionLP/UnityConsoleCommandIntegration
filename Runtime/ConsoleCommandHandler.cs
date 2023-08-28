@@ -24,7 +24,7 @@ namespace Ametrin.ConsoleCommandIntegration{
             var blank = input[^1] == ' ';
             if(inputParts.Count == 1 && !blank) return CommandManager.GetFirstCommand(key);
 
-            if (CommandManager.GetCommand(key).HasFailed(out var command)) return string.Empty;
+            if (!CommandManager.GetCommand(key).TryResolve(out var command)) return string.Empty;
             inputParts.RemoveAt(0);
             var nextParam = command.CompleteNextParameter(input, inputParts, blank);
             var start = blank ? input : input[..inputParts[^1].Start];
