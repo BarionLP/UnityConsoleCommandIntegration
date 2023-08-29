@@ -1,14 +1,14 @@
 {
     "name": "com.ametrin.console-command-integration",
     "displayName": "Console Command Integration",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "unity": "2022.3",
     "description": "Command integration for Ametrin Unity Console",
     "license": "MIT",
     "dependencies": {
         "com.ametrin.utils": "0.1.13",
         "com.ametrin.unity-console": "0.1.10",
-        "com.ametrin.command": "0.2.0"
+        "com.ametrin.command": "0.2.3"
     },
     "author": {
         "name": "Barion",

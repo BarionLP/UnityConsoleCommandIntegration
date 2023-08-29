@@ -11,23 +11,13 @@ namespace Ametrin.ConsoleCommandIntegration{
 
         public void Execute(ReadOnlySpan<char> input)=> CommandManager.Execute(input);
 
-        public ReadOnlySpan<char> GetSyntax(ReadOnlySpan<char> input){
-            var slices = input.Split(' ');
-            if(slices.Count == 0) return CommandManager.GetFirstSyntax();
-            return CommandManager.GetSyntax(input[slices[0]]);
-        }
+        public ReadOnlySpan<char> GetSyntax(ReadOnlySpan<char> input) => CommandManager.Commands.GetSyntax(input, input.Split(' '));
 
         public string GetAutoCompleted(ReadOnlySpan<char> input){
             var slices = input.Split(' ');
-            if(slices.Count == 0) return CommandManager.GetFirstCommand();
-            var key = input[slices[0]];
-            var blank = input[^1] == ' ';
-            if(slices.Count == 1 && !blank) return CommandManager.GetFirstCommand(key);
-
-            if (!CommandManager.GetCommand(key).TryResolve(out var command)) return string.Empty;
-            slices.RemoveAt(0);
-            var nextParam = command.CompleteNextParameter(input, slices, blank);
-            var start = blank ? input : input[..slices[^1].Start];
+            var endsWithSpace = input[^1] == ' ';
+            var nextParam = CommandManager.Commands.CompleteNextParameter(input, slices, endsWithSpace);
+            var start = endsWithSpace ? input : input[..slices[^1].Start];
             return new StringBuilder(start.Length + nextParam.Length).Append(start).Append(nextParam).ToString();
         }
     }
