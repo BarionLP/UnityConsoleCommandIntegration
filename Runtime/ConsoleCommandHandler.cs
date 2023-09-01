@@ -15,10 +15,10 @@ namespace Ametrin.ConsoleCommandIntegration{
 
         public string GetAutoCompleted(ReadOnlySpan<char> input){
             var slices = input.Split(' ');
-            var endsWithSpace = input[^1] == ' ';
+            var endsWithSpace = input.IsEmpty || input[^1] == ' ';
             var nextParam = CommandManager.Commands.CompleteNextParameter(input, slices, endsWithSpace);
             var start = endsWithSpace ? input : input[..slices[^1].Start];
-            return new StringBuilder(start.Length + nextParam.Length).Append(start).Append(nextParam).ToString();
+            return new StringBuilder(start.Length + nextParam.Length+1).Append(start).Append(nextParam).Append(' ').ToString();
         }
     }
 }
