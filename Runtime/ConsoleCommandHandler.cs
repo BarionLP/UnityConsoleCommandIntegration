@@ -9,9 +9,9 @@ namespace Ametrin.ConsoleCommandIntegration{
     public sealed class ConsoleCommandHandler : IConsoleHandler {
         public bool PassPrefix => false;
 
-        public void Execute(ReadOnlySpan<char> input)=> CommandManager.Execute(input);
+        public void Handle(ReadOnlySpan<char> input)=> CommandManager.Execute(input);
 
-        public ReadOnlySpan<char> GetSyntax(ReadOnlySpan<char> input) => CommandManager.Commands.GetSyntax(input, input.Split(' '));
+        public string GetHint(ReadOnlySpan<char> input) => CommandManager.Commands.GetSyntax(input, input.Split(' '));
 
         public string GetAutoCompleted(ReadOnlySpan<char> input){
             var slices = input.Split(' ');
