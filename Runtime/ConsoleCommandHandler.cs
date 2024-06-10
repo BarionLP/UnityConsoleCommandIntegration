@@ -1,11 +1,10 @@
 using System;
 using Ametrin.Console;
 using Ametrin.Command;
-using Ametrin.Utils;
 using System.Text;
 
-namespace Ametrin.ConsoleCommandIntegration{
 #nullable enable
+namespace Ametrin.ConsoleCommandIntegration{
     public sealed class ConsoleCommandHandler : IConsoleHandler {
         public bool PassPrefix => false;
 
